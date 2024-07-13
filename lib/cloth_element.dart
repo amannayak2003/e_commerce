@@ -39,7 +39,7 @@ class ClothElement extends StatelessWidget {
               ),
             ),
 
-            Positioned
+            const Positioned
             (right: 10,
             top: 5,
               child: Icon(Icons.favorite_border_outlined, size: 15,))
