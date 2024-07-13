@@ -13,7 +13,7 @@ class ClothElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 230,
+      height: 230+50,
       width: 155,
 
       // color: Colors.amber,
@@ -30,15 +30,19 @@ class ClothElement extends StatelessWidget {
             children: [
              
             Container(
-              height: 150,
+              height: 150+50,
               width: 155,
               // color: Colors.blue,
-              child: Card(child: Image.asset("1.jpg",fit: BoxFit.cover,),),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset("images/1.jpg",fit: BoxFit.cover,)
+              ),
             ),
 
-            Align(
-              alignment: Alignment.topRight,
-              child: Icon(Icons.favorite_border_outlined))
+            Positioned
+            (right: 10,
+            top: 5,
+              child: Icon(Icons.favorite_border_outlined, size: 15,))
             ]
             
           ),
