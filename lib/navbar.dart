@@ -4,7 +4,7 @@ class MyNavigationBar extends StatefulWidget {
   
   final List<NavigationDestination> navDestinations;
 
-  final VoidCallback updateCallback;
+  final VoidCallback? updateCallback;
 
   const MyNavigationBar({super.key, required this.navDestinations, required this.updateCallback });
 
@@ -22,7 +22,8 @@ class MyNavigationBarState extends State<MyNavigationBar> {
       {
         selectedIndex = index;
            
-        widget.updateCallback();
+        if(widget.updateCallback != null)
+          widget.updateCallback!();
       }
 
     });
@@ -43,6 +44,11 @@ class MyNavigationBarState extends State<MyNavigationBar> {
           
           onDestinationSelected: _onItemTapped,
 
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+
+          indicatorShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
         );
   }
 }
