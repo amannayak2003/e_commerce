@@ -1,15 +1,48 @@
 import 'package:flutter/material.dart';
 
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+class MyNavigationBar extends StatefulWidget {
+  
+  final List<NavigationDestination> navDestinations;
+
+  final VoidCallback updateCallback;
+
+  const MyNavigationBar({super.key, required this.navDestinations, required this.updateCallback });
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<MyNavigationBar> createState() => MyNavigationBarState();
 }
 
-class _NavBarState extends State<NavBar> {
+class MyNavigationBarState extends State<MyNavigationBar> {
+  
+  int selectedIndex = 0;
+
+  void _onItemTapped(int index)
+  {
+    setState(() {
+      {
+        selectedIndex = index;
+           
+        widget.updateCallback();
+      }
+
+    });
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    
+    return NavigationBar(
+          
+          selectedIndex: selectedIndex,
+          
+          destinations: widget.navDestinations,
+
+          height: 50,
+          
+          onDestinationSelected: _onItemTapped,
+
+        );
   }
 }
