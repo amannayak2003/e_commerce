@@ -1,8 +1,10 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:e_commerce/cloth_element.dart';
+import 'package:e_commerce/ecomm_appbar.dart';
+import 'package:e_commerce/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'two_c_button.dart';
+import 'categories.dart';
 
-import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,35 +13,66 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const Color primary = Color(0xFF074278);
-  static const Color secondary = Color(0xFFF5D3D3);
+  //LIST OF ALL NAVIGATOR BUTTONS
+  final List<NavigationDestination> navDestinations = const [
+    
+    NavigationDestination(
+      icon: Icon(Icons.home_outlined), 
+      label: "Home"),
+    
+    NavigationDestination(
+        icon: Icon(Icons.grid_view_outlined), 
+        label: "Gallery"),
+    
+    NavigationDestination(icon: Icon(Icons.people_outline), 
+    label: "Connect"),
+    
+    NavigationDestination(
+        icon: Icon(Icons.chat_bubble_outline_rounded), 
+        label: "Chat"),
+    
+    NavigationDestination(
+        icon: Icon(Icons.favorite_border), 
+        label: "Favorites"),
+  ];
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          textTheme: const TextTheme(
-              displayLarge: TextStyle(
-                  fontSize: 20,
-                  letterSpacing: 3,
-                  fontFamily: 'myfont1',
-                  fontWeight: FontWeight.w800,
-                  color: Colors.black),
-              titleMedium: TextStyle(
-                  fontSize: 12,
-                  letterSpacing: 1,
-                  fontFamily: 'myfont1',
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black))),
-      home: AnimatedSplashScreen(
-        splash: Center(child: Lottie.asset("assets/animation/splash.json")),
-        nextScreen: home(),
-        duration: 3500,
-        splashIconSize: 200,
-        backgroundColor: MyApp.secondary,
-      ),
-    );
+
+        debugShowCheckedModeBanner: false,
+
+        title: 'Flutter Demo',
+        
+        // theme: 
+        // ThemeData(
+          
+        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          
+        //   useMaterial3: true,
+        // ),
+
+        home: 
+        Scaffold(
+
+          body: const Categories(),
+
+          appBar: AppBar(
+            leading: Icon(Icons.arrow_back_ios_rounded),
+            
+            title: Center(child: Text("Categories")),
+
+            actions: [Icon(Icons.shopping_cart_outlined),],
+            ),
+
+          bottomNavigationBar: MyNavigationBar(
+            navDestinations: navDestinations, updateCallback: null),
+    
+        ) 
+        
+
+
+        );
   }
 }

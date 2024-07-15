@@ -16,12 +16,13 @@ class MyNavigationBarState extends State<MyNavigationBar> {
   
   int selectedIndex = 0;
 
+
   void _onItemTapped(int index)
   {
     setState(() {
       {
         selectedIndex = index;
-           
+
         if(widget.updateCallback != null)
           widget.updateCallback!();
       }
@@ -48,6 +49,8 @@ class MyNavigationBarState extends State<MyNavigationBar> {
 
           indicatorShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
+
+          
 
           
           ),
