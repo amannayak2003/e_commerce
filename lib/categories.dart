@@ -90,25 +90,26 @@ class _CategoriesState extends State<Categories> {
               const SizedBox(height: 30,),
           
               //GRIDVIEW
-              Expanded(
+              Container(
+                height: 300,
                 child: GridView.builder(
 
-                  
+
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    mainAxisSpacing: 165,
+                    mainAxisSpacing: 20,
                     crossAxisSpacing: 25,
                     childAspectRatio: 1
                     ),
-                  
-            
-          
+
+
+
                   itemCount: 10,
-          
+
                   itemBuilder: (context, index) {
-                    
-                    return ClothElement.random();  
-                  },  
+
+                    return ClothElement.random();
+                  },
                 ),
               )
           

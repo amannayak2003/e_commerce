@@ -95,28 +95,26 @@ class ClothElement extends StatelessWidget {
         child: Column(
           
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
         
           children: [
             
-            //CLOTH IMAGE
+           // CLOTH IMAGE
             Container(
-              
+
               height: 200,
               // width: 130,
               // color: Colors.blue,
-              
+
               child: Stack(
-                
+
                 children: [
-                  
-                  SizedBox.expand(
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        
-                        child: Image.asset(clothImg, fit: BoxFit.cover,height: 200, width: 130,)),
-                  ),
-                  
+
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+
+                      child: Image.asset(clothImg, fit: BoxFit.cover,height: 150, width: 130,)),
+
                   const Positioned(
                       right: 10,
                       top: 5,
