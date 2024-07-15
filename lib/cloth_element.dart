@@ -114,7 +114,7 @@ class ClothElement extends StatelessWidget {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         
-                        child: Image.asset(clothImg, fit: BoxFit.cover,height: 200, width: 130,)),
+                        child: Image.asset(clothImg, fit: BoxFit.cover,)),
                   ),
                   
                   const Positioned(
